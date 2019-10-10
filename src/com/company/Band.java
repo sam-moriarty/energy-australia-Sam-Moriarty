@@ -6,9 +6,21 @@ import java.util.LinkedList;
 public class Band {
     private String name;
     private String recordLabel;
+    private LinkedList<String> festivalPlayedAt;
 
     public Band(){
 
+    }
+
+    public LinkedList<String> getFestivalPlayedAt() {
+        return festivalPlayedAt;
+    }
+
+    public void setFestivalPlayedAt(LinkedList<String> festivalPlayedAt) {
+        this.festivalPlayedAt = festivalPlayedAt;
+    }
+    public void addFestivalPlayedAt(String festivalPlayedAt) {
+        this.festivalPlayedAt.add(festivalPlayedAt);
     }
 
     public String getName() {
@@ -32,7 +44,8 @@ public class Band {
     public String toString() {
         return "Band{" +
                 "name='" + name + '\'' +
-                ", recordLabel=" + recordLabel +
+                ", recordLabel='" + recordLabel + '\'' +
+                ", festivalPlayedAt=" + festivalPlayedAt +
                 '}';
     }
 }
