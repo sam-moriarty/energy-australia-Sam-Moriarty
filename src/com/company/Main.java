@@ -23,13 +23,48 @@ public class Main {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
             String urldata = reader.readLine();
+           // urldata = urldata.substring(1,(urldata.length()-1));
 
-            System.out.println(urldata.substring(1,(urldata.length()-1)));
+
+            System.out.println(urldata);
 
 
             System.out.println("-----------------------------");
 
-            //JSONArray jsonArray = jsonObject.getJSONArray("userInfo");
+            JSONArray jsonArray = new JSONArray(urldata);
+                System.out.println(jsonArray.length());
+
+
+            for(int i=0; i<jsonArray.length();i++){
+
+                JSONObject jObj = jsonArray.getJSONObject(i);
+                System.out.println(jObj);
+
+                String festivallName = jObj.getString("name");
+                LinkedList<Band> bands = new LinkedList<Band>();
+                System.out.println(festivallName);
+
+               // System.out.println(  jObj.get("bands")    );
+                JSONArray bandList =  jObj.getJSONArray("bands") ;
+                System.out.println(bandList);
+
+
+                /*for(int j =0 ; j<  bandList.length()      ;j++){
+
+                    JSONObject b = jsonArray.getJSONObject(j);
+                    Band thisBand = new Band();
+                    thisBand.setName(b.getString("name"));
+                    thisBand.setRecordLabel(b.getString("recordLabel"));
+
+                    System.out.println(thisBand.toString());
+
+               }*/
+
+
+
+            }
+
+
             //JSONObject jsonObject = new JSONObject(urldata);
             // List<String> list = new ArrayList<String>();
 
